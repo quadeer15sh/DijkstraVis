@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        #map {
+            position: relative;
+            width: 100.0%;
+            height: 100.0%;
+            left: 0.0%;
+            top: 0.0%;
+        }
+
+        .btn-circle.btn-sm {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0px;
+            border-radius: 15px;
+            font-size: 8px;
+            text-align: center;
+        }
+
+        .btn-circle.btn-md {
+            width: 50px;
+            height: 50px;
+            padding: 7px 10px;
+            border-radius: 25px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .btn-circle.btn-xl {
+            width: 70px;
+            height: 70px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="position: absolute; top: 20px; right: 20px; display: inline-block; z-index:9999;">
+        <button type="button" class="btn btn-danger btn-circle btn-md" onclick="document.location.href='/index';"><i class="fa fa-close"></i></button>
+        <button type="button" id="path" class="btn btn-success btn-circle btn-md"><i class="fa fa-location-arrow"></i></button>
+    </div>
+    <div
+        style="background-color: rgba(255,255,255, 0.7); padding:10px; margin: 10px; position: absolute; bottom: 20px; display: inline-block; border:2px solid grey; z-index:9999; font-size:14px;">
+        <table>
+            <tr>
+                <td><i class="fa fa-location-arrow" aria-hidden="true"></i></td>
+                <td>Find Shortest Path</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-close" aria-hidden="true"></i></td>
+                <td>Clear</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-map-marker" aria-hidden="true"></i></td>
+                <td>Vertices/Nodes</td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-home" aria-hidden="true"></i></td>
+                <td>Source/Destination</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Distance:</td>
+                <td id="distance" class="text-success font-weight-bold">0</td>
+            </tr>
+        </table>
+    </div>
+    <div class="folium-map" id="map"></div>
+
+</body>
+<script src="{{ url_for('static', filename='js/gisGraph.js') }}">
+</script>
