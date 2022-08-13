@@ -18,8 +18,7 @@ Let the node at which we are starting be called the initial node. Let the distan
 
 When planning a route, it is actually not necessary to wait until the destination node is "visited" as above: the algorithm can stop once the destination node has the smallest tentative distance among all "unvisited" nodes (and thus could be selected as the next "current").
 
-https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif
-
+![This is an image](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
 
 ## Python Libraries Required
 ```
@@ -34,8 +33,8 @@ pip install haversine
 The Road Network is stored in a graph data structure, and the distances of the edges between locations have been calculated using Haversine distance metric
 
 ## Overview
-Possible Paths
+### Possible Paths
 ![Screenshot (228)](https://user-images.githubusercontent.com/38568261/184507586-68869045-d78d-4db0-861f-f5c808d2fc3d.png)
 
-Optimal Path
+### Optimal Path
 ![Screenshot (229)](https://user-images.githubusercontent.com/38568261/184507603-f123edd7-bbde-4cb1-a954-a779fb4906cb.png)
